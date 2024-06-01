@@ -1,0 +1,21 @@
+<section class="art bg-body-tertiary py-5">
+    <form [formGroup]="artAddForm" (ngSubmit)="addArt()" class="container border bg-white rounded col-md-4 p-5 ">
+        <h3 class="text-center text-danger">Upload Your File</h3>
+        <div class="my-4">
+            <input class="form-control" type="file" placeholder="" formControlName="file">
+        </div>
+        <div class="my-4">
+            <input type="text" class="form-control py-2" placeholder="Art name" formControlName="name" required>
+        </div>
+        <div class="my-4">
+            <input type="text" class="form-control py-2" placeholder="Art name" formControlName="name2" required>
+        </div>
+        <select class="form-select" id="country">
+            <option value="1" selected> --country-- </option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+        <button type="submit" class="btn btn-danger mt-4">Upload</button><br>
+    </form>
+</section>

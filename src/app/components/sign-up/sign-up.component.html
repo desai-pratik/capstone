@@ -1,0 +1,82 @@
+<section class="sign-up bg-body-tertiary py-5">
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="container border bg-white rounded col-md-4 p-5 ">
+    <h3 class="text-center">Sign up</h3>
+    <p class="text-center">Please sign up to create account</p>
+
+    <div class="d-flex">
+      <button [ngClass]="{'btn-danger text-white': buyer, 'btn-outline-danger': !buyer}"
+        class="btn w-100 rounded-0 rounded-start" type="button" (click)="isBuyerHandle(true)">Buyer</button>
+      <button [ngClass]="{'btn-danger text-white': !buyer, 'btn-outline-danger': buyer}"
+        class="btn w-100 rounded-0 rounded-end" type="button" (click)="isBuyerHandle(false)">Seller</button>
+    </div>
+
+    <div class="my-4">
+      <input type="text" id="username" name="username" class="form-control py-2" placeholder="Username"
+        formControlName="username" required>
+      @if(signUpForm.get('username')?.touched && signUpForm.get('username')?.invalid){
+      <div class="text-danger">
+        @if(signUpForm.get('username')?.errors?.['required'] || signUpForm.invalid){
+        <small>Username is required.</small>
+        }
+        @if(signUpForm.get('username')?.errors?.['minlength']){
+        <small>Username must be at least 3 characters long.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="my-4">
+      <input type="email" id="Email" name="Email" class="form-control py-2" placeholder="Email" formControlName="email"
+        required>
+      @if(signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid){
+      <div class="text-danger">
+        @if(signUpForm.get('email')?.errors?.['required']){
+        <small>Email is required.</small>
+        }
+        @if(signUpForm.get('email')?.errors?.['email']){
+        <small>Email is invalid.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="my-4">
+      <input type="password" name="password" class="form-control py-2" placeholder="Password" formControlName="password"
+        required>
+      @if(signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid){
+      <div class="text-danger">
+        @if(signUpForm.get('password')?.errors?.['required']){
+        <small>Password is required.</small>
+        }
+        @if(signUpForm.get('password')?.errors?.['minlength']){
+        <small>Password must be at least 6 characters long.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="my-4">
+      <input type="text" name="contact" class="form-control py-2" placeholder="Contact" formControlName="contact"
+        required>
+      @if( signUpForm.get('contact')?.touched && signUpForm.get('contact')?.invalid){
+      <div class="text-danger">
+        @if(signUpForm.get('contact')?.errors?.['required']){
+        <small>Contact is required.</small>
+        }
+        @if(signUpForm.get('contact')?.errors?.['minlength']){
+        <small>Contact must be at least 10 characters long.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" (change)="checked()" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Agree to the terms and conditions</label>
+    </div>
+
+    <button type="submit" class="btn btn-danger my-2" [disabled]="!checkedTerm">Sign up</button><br>
+    <a href="#" class=" d-inline-block mt-2" routerLink="/login">Already registered? click here to login.. </a> <br />
+
+  </form>
+</section>

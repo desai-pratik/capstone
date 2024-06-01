@@ -1,0 +1,19 @@
+<section class="login bg-body-tertiary py-5">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="bg-white container border rounded col-md-4 p-5">
+    <h3 class="text-center">Login</h3>
+    <p class="text-center">Please login to your account</p>
+    <div class="my-4">
+      <input type="email" id="Email" name="Email" class="form-control py-2" placeholder="Email" formControlName="email"
+        required>
+    </div>
+
+    <div class="my-4">
+      <input type="password" name="password" class="form-control py-2" placeholder="Password" formControlName="password"
+        required>
+    </div>
+
+
+    <button type="submit" class="btn btn-danger d-block w-100 mt-4">Login</button>
+    <a href="#" class="d-inline-block mt-4" routerLink="/sign-up">New user? sign up </a>
+  </form>
+</section>

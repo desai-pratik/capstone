@@ -1,0 +1,28 @@
+.masonry {
+    column-count: 4; 
+}
+.masonry .card{
+    break-inside: avoid;
+}
+ 
+@media screen and (max-width:991px) {
+    .masonry {
+        column-count: 3; 
+    }
+  }
+  @media screen and (max-width:767px) {
+    .masonry {
+        column-count: 2; 
+    }
+  }
+  @media screen and (max-width:500px) {
+    .masonry {
+        column-count: 1; 
+    }
+  }
+
+
+
+
+
+
